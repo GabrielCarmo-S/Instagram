@@ -3,6 +3,8 @@ import { Text, View, Button, Image, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
 import styles from './styles';
 
 export default function Add({ navigation }) {
@@ -55,15 +57,14 @@ export default function Add({ navigation }) {
         ref={ref => setCamera(ref)}
         style={styles.fixedRatio}
         type={type}
-        ratio={'1:1'}>
+        ratio={'1'}>
 
         <TouchableOpacity style={styles.button} onPress={() => takePicture()} />
-        {/* <TouchableOpacity style={styles.button1} onPress={() => { setType( type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back);}} /> */}
-
       </Camera>
 
-
-
+      <TouchableOpacity style={styles.button1} onPress={() => { setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back); }}>
+        <MaterialCommunityIcons name="camera-switch" size={50} color={'white'} />
+      </TouchableOpacity>
 
       {/* <TouchableOpacity
         style={styles.button}
@@ -72,10 +73,11 @@ export default function Add({ navigation }) {
       </TouchableOpacity> */}
 
 
-      <Button title="Pick Image" onPress={() => pickImage()} />
+        <Button title="Pick Image" onPress={() => pickImage()} />
 
-      <Button title="Save" onPress={() => navigation.navigate('Save', { image })} />
-      {image && <Image source={{ uri: image }} style={{ flex: 1 }} />}
+        <Button title="Save" onPress={() => navigation.navigate('Save', { image })} />
+
+        {image && <Image source={{ uri: image }} style={styles.image} />}
     </View>
   );
 }

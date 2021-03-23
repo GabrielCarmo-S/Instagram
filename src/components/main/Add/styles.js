@@ -4,19 +4,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'transparent',
+    backgroundColor: 'black',
   },
-
-  cameraContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-
+  
   fixedRatio: {
     flex: 1,
-    justifyContent: 'flex-end',
     alignItems: 'center',
+    justifyContent: 'flex-end',
   },
 
   button: {
@@ -26,17 +20,27 @@ const styles = StyleSheet.create({
     width: 50,
     backgroundColor: 'white',
     borderRadius: 25,
-    borderColor: 'red'
   },
+  
 
   button1: {
-    alignSelf: 'center',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
     marginVertical: 10,
     height: 50,
     width: 50,
-    backgroundColor: 'red',
-    borderRadius: 25,
+    marginRight: 20
+  },
 
+  icon: {
+    height: 50,
+    backgroundColor: 'white'
+  },
+
+  image: {
+    flex: 1,
+    height: '100%',
+    width: '100%'
   }
 
 
