@@ -1,5 +1,5 @@
 <h1 align="center">
-    <br>TIktok Clone<br/>
+    <br>Instagram Clone<br/>
   Node.js | ReactJS | React Native
 </h1>
 
@@ -11,7 +11,7 @@
 
 ## :bookmark: Sobre
 
-Clone do tiktok.
+Clone do Instagram.
 
 ## :rocket: Tecnologias
 -  [Typescript](https://www.typescriptlang.org/)
