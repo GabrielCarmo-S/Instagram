@@ -14,13 +14,9 @@
 Clone do Instagram.
 
 ## :rocket: Tecnologias
--  [Typescript](https://www.typescriptlang.org/)
 -  [Node.js](https://nodejs.org/en/)
--  [ReactJS](https://reactjs.org/)
 -  [React Native](http://facebook.github.io/react-native/)
 -  [Expo](https://expo.io/)
--  [Express](https://expressjs.com/)
--  [axios](https://github.com/axios/axios)
 
 ## :boom: Como Executar
 
@@ -34,14 +30,14 @@ Clone do Instagram.
 1. Faça um clone do repositório:
 
 ```sh
-  $ git clone https://github.com/GabrielCarmo-S/Tiktok.git
+  $ git clone https://github.com/GabrielCarmo-S/Instagram.git
 ```
 
 2. Executando a Aplicação:
 
 ```sh
   # Aplicação mobile
-  $ cd mobile
+  $ cd instagram
   # Instalando as dependências do projeto.
   $ yarn # ou npm install
   # Inicie a aplicação mobile
