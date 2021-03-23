@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   button: {
     top: -100,
     alignItems: 'center',
+    position: 'absolute'
   }
 });
 

@@ -33,7 +33,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RegisterScreen from './src/components/auth/Register/Register'
 import LoginScreen from './src/components/auth/Login/Login'
 import MainScreen from './src/components/Main'
-import AddScreen from './src/components/main/Add';
+import AddScreen from './src/components/main/Add/Add';
 import SaveScreen from './src/components/main/Save';
 
 const Stack = createStackNavigator();
