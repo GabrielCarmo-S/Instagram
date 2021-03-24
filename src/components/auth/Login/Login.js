@@ -37,14 +37,17 @@ export class Login extends Component {
           <Text>Senha</Text>
           <TextInput style={styles.input} secureTextEntry={true} onChangeText={(password) => this.setState({ password })} />
 
-          <TouchableOpacity style={styles.entrar} onPress={() =>  this.onSignUp()}>
+          <TouchableOpacity style={styles.entrar} onPress={() => this.onSignUp()}>
             <Text style={styles.text}>Login</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.containerButton}>
+          <TouchableOpacity style={styles.button} onPress={() => { this.props.navigation.navigate('Register') }}>
+            <Text style={styles.text}>Crie uma conta</Text>
+          </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity style={styles.button} onPress={() => { this.props.navigation.navigate('Register') }}>
-          <Text style={styles.text}>Crie uma conta</Text>
-        </TouchableOpacity>
+
       </View>
     )
   }

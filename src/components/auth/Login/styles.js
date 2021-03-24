@@ -6,13 +6,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: '100%',
     height: '100%',
-    alignItems: 'center',
+    justifyContent: 'space-around'
   },
 
   welcome: {
     alignItems: 'center',
     fontSize: 16,
-    marginTop: 100
+    marginTop: 30
   },
 
   text: {
@@ -21,10 +21,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 
-
   inputcontainer: {
-    flex: 1,
-    marginTop: 70,
     alignSelf: 'center',
   },
 
@@ -49,10 +46,15 @@ const styles = StyleSheet.create({
   },
 
 
-  button: {
-    top: -100,
+  containerButton: {
+    alignSelf: 'center',
     alignItems: 'center',
-    position: 'absolute'
+  },
+
+
+  button: {
+
+    alignItems: 'center',
   }
 });
 
