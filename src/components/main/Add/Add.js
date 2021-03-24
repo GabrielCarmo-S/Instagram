@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, Image, TouchableOpacity } from 'react-native';
+import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -31,6 +31,10 @@ export default function Add({ navigation }) {
     }
   }
 
+  const retakePicture = () => {
+    setImage(null)
+  }
+
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -54,48 +58,49 @@ export default function Add({ navigation }) {
   return (
     <View style={styles.container}>
 
-      {image ? (
-        <Image source={{ uri: image }} style={styles.image} />) : (
+      {image ?
+        (
+          <ImageBackground source={{ uri: image }} style={{ flex: 1 }}>
+            <View style={styles.image}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <TouchableOpacity style={styles.save} onPress={retakePicture} >
+                  <MaterialCommunityIcons name="arrow-left" size={50} color={'white'} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.save} onPress={() => navigation.navigate('Save', { image })}>
+                  <MaterialCommunityIcons name="content-save" size={50} color={'white'} />
+                </TouchableOpacity>
+              </View>
+            </View>
 
-        <Camera
-          ref={ref => setCamera(ref)}
-          style={styles.cameraContainer}
-          type={type}
-          ratio={'1'}>
-          <View style={styles.header}>
-            <TouchableOpacity style={styles.buttonExit} onPress={() => { navigation.navigate('Feed') }}>
-              <MaterialCommunityIcons name="arrow-left" size={50} color={'white'} />
-            </TouchableOpacity>
-          </View>
+          </ImageBackground>
+        ) :
+        (
+          <Camera
+            ref={ref => setCamera(ref)}
+            style={styles.cameraContainer}
+            type={type}
+            ratio={'1'}>
+            <View style={styles.header}>
+              <TouchableOpacity style={styles.buttonExit} onPress={() => { navigation.navigate('Feed') }}>
+                <MaterialCommunityIcons name="arrow-left" size={50} color={'white'} />
+              </TouchableOpacity>
+            </View>
 
-          <View style={styles.containerIcons} >
-            <TouchableOpacity style={styles.button1} onPress={() => pickImage()}>
-              <MaterialCommunityIcons name="folder-image" size={50} color={'white'} />
-            </TouchableOpacity>
+            <View style={styles.containerIcons} >
+              <TouchableOpacity style={styles.button1} onPress={() => pickImage()}>
+                <MaterialCommunityIcons name="folder-image" size={50} color={'white'} />
+              </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => takePicture()} />
+              <TouchableOpacity style={styles.button} onPress={() => takePicture()} />
 
-            <TouchableOpacity style={styles.button1} onPress={() => { setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back); }}>
-              <MaterialCommunityIcons name="camera-switch" size={50} color={'white'} />
-            </TouchableOpacity>
-          </View>
-        </Camera>
-      )
+              <TouchableOpacity style={styles.button1} onPress={() => { setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back); }}>
+                <MaterialCommunityIcons name="camera-switch" size={50} color={'white'} />
+              </TouchableOpacity>
+            </View>
+          </Camera>
+        )
       }
     </View >
   );
-
-
-
-
-
-
-
-  {/*
-
-        <Button title="Save" onPress={() => navigation.navigate('Save', { image })} />
-
-        {image && <Image source={{ uri: image }} style={styles.image} />} */}
-
 
 }
