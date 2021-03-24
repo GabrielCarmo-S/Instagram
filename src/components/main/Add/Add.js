@@ -53,36 +53,49 @@ export default function Add({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Camera
-        ref={ref => setCamera(ref)}
-        style={styles.cameraContainer}
-        type={type}
-        ratio={'1'}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.buttonExit} onPress={() => { navigation.navigate('Feed') }}>
-            <MaterialCommunityIcons name="arrow-left" size={50} color={'white'} />
-          </TouchableOpacity>
-        </View>
 
-        <View style={styles.containerIcons} >
-          <TouchableOpacity style={styles.button1} onPress={() => pickImage()}>
-            <MaterialCommunityIcons name="folder-image" size={50} color={'white'} />
-          </TouchableOpacity>
+      {image ? (
+        <Image source={{ uri: image }} style={styles.image} />) : (
 
-          <TouchableOpacity style={styles.button} onPress={() => takePicture()} />
+        <Camera
+          ref={ref => setCamera(ref)}
+          style={styles.cameraContainer}
+          type={type}
+          ratio={'1'}>
+          <View style={styles.header}>
+            <TouchableOpacity style={styles.buttonExit} onPress={() => { navigation.navigate('Feed') }}>
+              <MaterialCommunityIcons name="arrow-left" size={50} color={'white'} />
+            </TouchableOpacity>
+          </View>
 
-          <TouchableOpacity style={styles.button1} onPress={() => { setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back); }}>
-            <MaterialCommunityIcons name="camera-switch" size={50} color={'white'} />
-          </TouchableOpacity>
-        </View>
-      </Camera>
+          <View style={styles.containerIcons} >
+            <TouchableOpacity style={styles.button1} onPress={() => pickImage()}>
+              <MaterialCommunityIcons name="folder-image" size={50} color={'white'} />
+            </TouchableOpacity>
 
-      {/*
+            <TouchableOpacity style={styles.button} onPress={() => takePicture()} />
+
+            <TouchableOpacity style={styles.button1} onPress={() => { setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back); }}>
+              <MaterialCommunityIcons name="camera-switch" size={50} color={'white'} />
+            </TouchableOpacity>
+          </View>
+        </Camera>
+      )
+      }
+    </View >
+  );
+
+
+
+
+
+
+
+  {/*
 
         <Button title="Save" onPress={() => navigation.navigate('Save', { image })} />
 
         {image && <Image source={{ uri: image }} style={styles.image} />} */}
-    </View>
-  );
-}
 
+
+}
