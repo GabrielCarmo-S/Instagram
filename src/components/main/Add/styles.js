@@ -1,21 +1,41 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
     backgroundColor: 'black',
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+  },
+
+  header: {
+    width: '100%',
+    backgroundColor: 'transparent',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start'
+  },
+
+  buttonExit: {
+    paddingLeft: 5,
+    paddingTop: 30
   },
   
-  fixedRatio: {
+  cameraContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+  },
+
+  containerIcons: {
+    width: '100%',
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
 
   button: {
-    alignSelf: 'center',
-    marginVertical: 10,
+    margin: 10,
     height: 50,
     width: 50,
     backgroundColor: 'white',
@@ -24,12 +44,9 @@ const styles = StyleSheet.create({
   
 
   button1: {
-    alignItems: 'center',
-    alignSelf: 'flex-end',
-    marginVertical: 10,
+    margin: 10,
     height: 50,
     width: 50,
-    marginRight: 20
   },
 
   icon: {
