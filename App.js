@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { View, Button, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';

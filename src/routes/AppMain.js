@@ -10,11 +10,11 @@ const { Navigator, Screen } = createStackNavigator();
 
 function AppMain() {
   return (
-    <NavigationContainer style={{ flex: 1 }}>
+    <NavigationContainer>
       <Navigator>
         <Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }} />
-        <Screen name="AddScreen" component={AddScreen} />
-        <Screen name="Save" component={SaveScreen} />
+        <Screen name="AddScreen" component={AddScreen} options={{ headerShown: false }} />
+        <Screen name="Save" component={SaveScreen} options={{ headerShown: false }} />
       </Navigator>
     </NavigationContainer>
   );
