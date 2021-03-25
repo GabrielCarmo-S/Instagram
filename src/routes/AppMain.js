@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import MainScreen from './Main';
-import AddScreen from '../screens/main/Add/Add';
-import SaveScreen from '../screens/main/Save';
+import AddScreen from '../screens/Add';
+import SaveScreen from '../screens/Save';
 
 const { Navigator, Screen } = createStackNavigator();
 

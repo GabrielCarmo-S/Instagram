@@ -28,6 +28,7 @@ if (firebase.apps.length === 0) {
 
 import AppStack from './src/routes/AppStack';
 import AppMain from './src/routes/AppMain';
+import Loading from './src/screens/Loading';
 
 export class App extends Component {
   constructor(props) {
@@ -57,9 +58,7 @@ export class App extends Component {
     const { loggedIn, loaded } = this.state;
     if (!loaded) {
       return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Text>Loading</Text>
-        </View>
+        <Loading />
       )
     }
 
