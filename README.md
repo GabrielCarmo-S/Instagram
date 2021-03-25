@@ -33,18 +33,6 @@ Clone do Instagram.
   $ git clone https://github.com/GabrielCarmo-S/Instagram.git
 ```
 
-2. Executando a Aplicação:
-
-```sh
-  # Aplicação mobile
-  $ cd instagram
-  # Instalando as dependências do projeto.
-  $ yarn # ou npm install
-  # Inicie a aplicação mobile
-  $ yarn start # ou npm start
-```
-
-
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
