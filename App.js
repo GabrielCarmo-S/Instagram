@@ -5,7 +5,6 @@ import { View, Button, Text } from 'react-native';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './src/redux/reducers'
@@ -27,20 +26,8 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig)
 }
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import RegisterScreen from './src/components/auth/Register/Register'
-import LoginScreen from './src/components/auth/Login/Login'
-import MainScreen from './src/components/Main'
-import AddScreen from './src/components/main/Add/Add';
-import SaveScreen from './src/components/main/Save';
-
-const Stack = createStackNavigator();
-
-console.ignoredYellowBox = [
-  'Setting a timer'
-]
+import AppStack from './src/routes/AppStack';
+import AppMain from './src/routes/AppMain';
 
 export class App extends Component {
   constructor(props) {
@@ -78,24 +65,13 @@ export class App extends Component {
 
     if (!loggedIn) {
       return (
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <AppStack />
       );
     }
 
     return (
-      <Provider store={store}>
-        <NavigationContainer >
-          <Stack.Navigator>
-            <Stack.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Add" component={AddScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Save" component={SaveScreen}/>
-          </Stack.Navigator>
-        </NavigationContainer>
+      <Provider store={store} style={{flex: 1}}>
+        <AppMain />
       </Provider>
     )
   }

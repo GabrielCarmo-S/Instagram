@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchUser } from '../redux/actions/index';
 
-import FeedScreen from './main/Feed';
-import ProfileScreen from './main/Profile';
+import FeedScreen from '../components/main/Feed';
+import ProfileScreen from '../components/main/Profile';
 
 const Tab = createMaterialBottomTabNavigator();
 
