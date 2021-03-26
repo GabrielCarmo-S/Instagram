@@ -3,7 +3,7 @@ import { View, Button, Text } from 'react-native';
 
 function Feed() {
   return (
-    <View>
+    <View style={{flex: 1, padding: 40}}>
       <Text>Feed</Text>
     </View>
   )
