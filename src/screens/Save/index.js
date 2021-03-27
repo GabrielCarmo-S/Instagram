@@ -2,11 +2,9 @@ import React, { useState } from 'react'
 import { View, TextInput, Image, Button } from 'react-native'
 
 import firebase from 'firebase'
-
-import styles from './styles'
+import { NavigationContainer } from '@react-navigation/native'
 require("firebase/firestore")
 require("firebase/firebase-storage")
-
 
 
 export default function Save(props) {
@@ -32,6 +30,7 @@ export default function Save(props) {
 
         const taskCompleted = () => {
             task.snapshot.ref.getDownloadURL().then((snapshot) => {
+                savePostData(snapshot);
                 console.log(snapshot)
             })
         }
@@ -43,15 +42,29 @@ export default function Save(props) {
         task.on("state_changed", taskProgress, taskError, taskCompleted);
     }
 
-    return (
-      
-        <View style={{ flex: 1 }}>
+    const savePostData = (downloadURL) => {
 
-            <Image source={{ uri: props.route.params.image }} style={styles.image}/>
+        firebase.firestore()
+            .collection('posts')
+            .doc(firebase.auth().currentUser.uid)
+            .collection("userPosts")
+            .add({
+                downloadURL,
+                caption,
+                likesCount: 0,
+                creation: firebase.firestore.FieldValue.serverTimestamp()
+            }).then((function () {
+                props.navigation.popToTop()
+            }))
+    }
+    return (
+        <View style={{ flex: 1 }}>
+            <Image source={{ uri: props.route.params.image }} />
             <TextInput
                 placeholder="Write a Caption . . ."
                 onChangeText={(caption) => setCaption(caption)}
             />
+
             <Button title="Save" onPress={() => uploadImage()} />
         </View>
     )
