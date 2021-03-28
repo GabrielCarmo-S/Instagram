@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchUser } from '../redux/actions/index';
+import { fetchUser, fetchUserPosts } from '../redux/actions/index';
 
 import FeedScreen from '../screens/Feed';
 import ProfileScreen from '../screens/Profile';
@@ -18,6 +18,7 @@ const EmptyScreen = () => {
 export class Main extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchUserPosts();
   }
 
   render() {
@@ -67,6 +68,6 @@ const mapStateToProps = (store) => ({
   currentUser: store.userState.currentUser
 })
 
-const mapDispatchProps = (dispatch) => bindActionCreators({ fetchUser }, dispatch)
+const mapDispatchProps = (dispatch) => bindActionCreators({ fetchUser, fetchUserPosts }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchProps)(Main);
