@@ -12,7 +12,7 @@ function AppMain() {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }} />
+        <Screen name="MainScreen" component={MainScreen}/>
         <Screen name="AddScreen" component={AddScreen} options={{ headerShown: false }} />
         <Screen name="Save" component={SaveScreen} options={{ headerShown: false }} />
       </Navigator>
